@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NitroCraft | Customização Automotiva</title>
+    <style>
+        /* RESET DE ESTILOS */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body {
+            background-color: #0b0c10;
+            color: #f5f5f5;
+            /* Fontes modernas e agressivas para o ramo automobilístico */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-x: hidden;
+        }
+
+        /* BARRA DE NAVEGAÇÃO */
+        header {
+            background-color: #1f2833;
+            border-bottom: 5px solid #ff0055;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        }
+
+        .logo {
+            color: #00ffcc;
+            font-weight: 900;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-style: italic;
+        }
+
+        .logo span {
+            color: #ff0055;
+        }
+
+        nav a {
+            color: #c5a059;
+            color: #a1a1aa;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-left: 1.5rem;
+            padding-bottom: 4px;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+        }
+
+        nav a.active, nav a:hover { 
+            color: #00ffcc;
+            border-bottom: 3px solid #ff0055;
+        }
+
+        /* CONTEÚDO PRINCIPAL */
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4rem;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            main { 
+                flex-direction: row; 
+                text-align: left; 
+            }
+        }
+
+        .content-box { 
+            flex: 1.2; 
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #1a000c;
+            color: #ff0055;
+            border: 2px solid #ff0055;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 3px 3px 0px #00ffcc;
+        }
+
+        h2 { 
+            font-size: 2.8rem; 
+            color: #ffffff; 
+            line-height: 1.2; 
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        h2 span { 
+            color: #00ffcc; 
+            background-color: #0b221e;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        p { 
+            color: #c5cbd3; 
+            font-size: 1.1rem; 
+            line-height: 1.6; 
+            margin-bottom: 2.5rem; 
+        }
+
+        /* BOTÃO ESPORTIVO MODERNIZADO */
+        .btn-craft {
+            display: inline-block;
+            background-color: #ff0055;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 1.2rem 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid #111111;
+            border-bottom: 5px solid #990033;
+            border-right: 5px solid #990033;
+            cursor: pointer;
+            transition: all 0.1s ease;
+        }
+
+        .btn-craft:hover { 
+            background-color: #00ffcc; 
+            color: #0b0c10;
+            border-bottom-color: #00b38f;
+            border-right-color: #00b38f;
+        }
+
+        .btn-craft:active { 
+            transform: translate(3px, 3px); 
+            border-bottom-width: 2px;
+            border-right-width: 2px;
+        }
+
+        /* CARD DO VEÍCULO (CONSTRUÍDO TOTALMENTE VIA CSS) */
+        .image-box { 
+            flex: 1; 
+            max-width: 450px; 
+            width: 100%; 
+        }
+
+        .card {
+            background-color: #1f2833;
+            border: 4px solid #45f3ff;
+            border: 3px solid #333;
+            padding: 0.6rem;
+            position: relative;
+            box-shadow: 10px 10px 0px #111111;
+        }
+
+        /* Arte do Carro Esportivo desenhada em código CSS puro */
+        .minecraft-art {
+            width: 100%;
+            height: 300px;
+            border: 2px solid #111111;
+            background: 
+                /* Estufa de Pintura Neon */
+                linear-gradient(180deg, #111111 0%, #1f2833 70%, #2c3540 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Neon de fundo da oficina */
+        .minecraft-art::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 10%;
+            width: 80%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff0055, #00ffcc);
+            box-shadow: 0 0 15px #ff0055;
+        }
+
+        /* Silhueta do Carro Esportivo Modificado com Adesivos/Faixas em CSS */
+        .minecraft-art::after {
+            content: "";
+            position: absolute;
+            bottom: 60px;
+            left: 40px;
+            width: 320px;
+            height: 90px;
+            /* Formato aerodinâmico do carro esporte, aerofólio e rodas pretas */
+            background: 
+                /* Rodas */
+                circle 25px at 60px 85px, #0b0c10 100%,
+                circle 25px at 260px 85px, #0b0c10 100%,
+                /* Faixa esportiva de adesivamento (Vinyl decal) */
+                linear-gradient(45deg, transparent 40%, #00ffcc 40%, #00ffcc 50%, transparent 50%),
+                /* Janelas e teto */
+                polygon(80px 40px, 140px 10px, 220px 10px, 250px 40px) #111,
+                /* Corpo do carro com pintura vermelha sólida */
+                polygon(20px 60px, 40px 40px, 280px 40px, 310px 10px, 320px 10px, 315px 40px, 330px 60px, 320px 85px, 15px 85px) #ff0055;
+            background-repeat: no-repeat;
+        }
+
+        /* Chão da estufa/oficina */
+        .oficina-chao {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 65px;
+            background: repeating-linear-gradient(45deg, #111, #111 10px, #222 10px, #222 20px);
+            border-top: 3px solid #ff0055;
+        }
+
+        .card-caption {
+            position: absolute;
+            bottom: -25px; 
+            left: 20px; 
+            right: 20px;
+            background-color: #0b0c10;
+            border: 3px solid #ff0055;
+            padding: 0.8rem;
+            text-align: left;
+            box-shadow: 5px 5px 0px #00ffcc;
+        }
+
+        .caption-tag { 
+            color: #00ffcc; 
+            font-size: 0.8rem; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            margin-bottom: 0.3rem; 
+            letter-spacing: 1px;
+        }
+
+        .caption-text { 
+            color: #e4e4e7; 
+            font-size: 0.9rem; 
+        }
+
+        /* RODAPÉ */
+        footer {
+            background-color: #0f0f0f;
+            border-top: 3px solid #1f2833;
+            padding: 1.8rem 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 2rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Barra de Navegação -->
+    <header>
+        <div class="logo">⚡ NITRO<span>CRAFT</span></div>
+        <nav>
+            <a href="#inicio" class="active">Início</a>
+            <a href="#sobre">Projetos</a>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main id="inicio">
+        <div class="content-box">
+            <span class="badge">Estúdio de Performance Ativo</span>
+            <h2>Suba o Giro!<br>Seu carro em <span>estágio único</span>.</h2>
+            <p>Traga sua máquina para o próximo nível. Somos especialistas em modificações estéticas extremas, setups de rebaixamento, pinturas personalizadas em estufa e envelopamento/adesivamento completo com vinil premium.</p>
+            <a href="#sobre" class="btn-craft">Ver Serviços</a>
+        </div>
+
+        <div class="image-box">
+            <div class="card">
+                <!-- Cenário e carro gerados inteiramente em CSS puro -->
+                <div class="minecraft-art">
+                    <div class="oficina-chao"></div>
+                </div>
+                <div class="card-caption">
+                    <p class="caption-tag">// PROJETO_098 CARREGADO</p>
+                    <p class="caption-text">Pintura Candy e adesivamento concluídos.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2026 NitroCraft Custom. Respeite as leis de trânsito e acelere apenas nas pistas.</p>
+    </footer>
+
+</body>
+</html>
