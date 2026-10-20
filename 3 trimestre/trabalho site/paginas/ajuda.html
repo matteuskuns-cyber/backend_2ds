@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriVida - Ajuda Alimentar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">Nutri<span>Vida</span></a>
+            <nav class="nav-menu">
+                <a href="index.html">Início</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="ajuda.html" class="active">Ajuda Alimentar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="help-section">
+            <div class="section-container">
+                <h2 class="section-title">Ajuda Alimentar Inteligente</h2>
+                <p class="help-subtitle">Diga-nos qual ingrediente sobrou ou qual sua maior dificuldade e receba uma orientação imediata.</p>
+                
+                <div class="help-form-container">
+                    <form id="foodHelpForm" class="help-form">
+                        <textarea 
+                            id="helpInput" 
+                            placeholder="Ex: Tenho frango e brócolis, o que preparo? ou Como ingerir mais vegetais?" 
+                            required></textarea>
+                        <button type="submit" class="btn-submit">Enviar Dúvida</button>
+                    </form>
+                    
+                    <div id="helpResponse" class="help-response hidden">
+                        <strong>NutriVida Assistente:</strong> <span id="responseText"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 NutriVida. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('foodHelpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const input = document.getElementById('helpInput').value.toLowerCase();
+            const responseDiv = document.getElementById('helpResponse');
+            const responseText = document.getElementById('responseText');
+            
+            let reply = "Dica excelente: Tente focar em preparar alimentos grelhados estruturando marmitas para a semana.";
+            
+            if (input.includes('frango') || input.includes('brócolis')) {
+                reply = "Corte o frango em cubos, refogue com brócolis e alho no azeite de oliva e finalize com gergelim. Prático e nutritivo!";
+            } else if (input.includes('vegetais') || input.includes('legumes')) {
+                reply = "Experimente assar seus vegetais picados com azeite, sal e alecrim a 200°C por 20 minutos. Eles ganham textura e sabor adocicado.";
+            } else if (input.includes('doce') || input.includes('açúcar')) {
+                reply = "Para sanar a vontade por açúcar, amasse uma banana, polvilhe canela e leve ao micro-ondas por 1 minuto.";
+            }
+            
+            responseText.textContent = reply;
+            responseDiv.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
